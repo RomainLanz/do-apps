@@ -2,7 +2,7 @@
 FROM node:15.3.0-alpine3.12 as builder
 
 RUN apk add --no-cache git
-WORKDIR /srv/www
+WORKDIR /app
 COPY . .
 
 RUN npm i \
@@ -13,8 +13,16 @@ RUN npm i \
 # Application Runtime
 FROM node:15.3.0-alpine3.12
 
+ENV HOST=0.0.0.0
+ENV PORT=8080
+ENV NODE_ENV=production
+ENV ENV_SILENT=true
+ENV APP_KEY=
+ENV SESSION_DRIVER=cookie
+ENV CACHE_VIEWS=true
+
 USER node
-WORKDIR /srv/www
+WORKDIR /app
 COPY --from=builder /srv/www/build .
 
 EXPOSE 8080
