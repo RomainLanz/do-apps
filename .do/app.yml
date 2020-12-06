@@ -1,7 +1,7 @@
 name: do-apps
 region: fra
 services:
-  name: application
+  - name: application
   dockerfile_path: .
   environment_slug: node-js
   envs:
