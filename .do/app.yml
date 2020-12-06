@@ -2,7 +2,7 @@ name: do-apps
 region: fra
 services:
   - name: application
-  dockerfile_path: .
+  dockerfile_path: Dockerfile
   envs:
     - key: NODE_ENV
       scope: RUN_AND_BUILD_TIME
