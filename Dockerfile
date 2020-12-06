@@ -23,7 +23,7 @@ ENV CACHE_VIEWS=true
 
 USER node
 WORKDIR /app
-COPY --from=builder /srv/www/build .
+COPY --from=builder /app/build .
 
 EXPOSE 8080
 CMD ["node", "server.js"]
