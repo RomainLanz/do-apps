@@ -26,6 +26,6 @@ WORKDIR /app
 COPY --from=builder /srv/www/build .
 
 EXPOSE 8080
-CMD ["node", "/app/server.js"]
+CMD ["node", "server.js"]
 
 
